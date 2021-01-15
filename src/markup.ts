@@ -146,7 +146,7 @@ function getSingletestMarkup(data: UnitTest, testData: TrxDataWrapper): string {
     data._id,
     testData.TrxData.TestRun.Results
   )
-  if (testResult) {
+  if (testResult && testResult?._outcome !== 'Passed') {
     const testResultIcon = getTestOutcomeIcon(testResult?._outcome)
     let testMarkup = `
 <details>
